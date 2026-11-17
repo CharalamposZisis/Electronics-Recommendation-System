@@ -1,0 +1,16 @@
+# Ρυθμίσεις δεδομένων ESCI. Τα paths είναι σχετικά με τη ρίζα του repo.
+esci:
+  raw_dir: data/esci_data/esci-data/shopping_queries_dataset
+  examples_file: shopping_queries_dataset_examples.parquet
+  products_file: shopping_queries_dataset_products.parquet
+  sources_file: shopping_queries_dataset_sources.csv
+
+filters:
+  version: small_version   # small_version | large_version
+  locale: us               # us | es | jp
+
+split:
+  val_fraction: 0.1        # ποσοστό των train queries που γίνονται val (ανά query_id)
+  seed: 42
+
+output_dir: data/processed/esci_small_us
