@@ -14,3 +14,9 @@ split:
   seed: 42
 
 output_dir: data/processed/esci_small_us
+
+# Amazon Reviews 2023 (McAuley Lab) — metadata Electronics για το φίλτρο electronics.
+amazon_meta:
+  url: https://mcauleylab.ucsd.edu/public_datasets/data/amazon_2023/raw/meta_categories/meta_Electronics.jsonl.gz
+  out_file: data/amazon_reviews/meta_Electronics_slim.parquet
+  columns: [parent_asin, title, main_category, categories, store, price, average_rating, rating_number]

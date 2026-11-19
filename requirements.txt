@@ -6,3 +6,5 @@ pyarrow
 pyyaml
 jupyter
 datasets
+nbformat
+nbclient

@@ -1,0 +1,162 @@
+{
+  "coverage": {
+    "meta_products": 1610012,
+    "esci_products": 482105,
+    "products_matched": 11966,
+    "products_matched_share": 0.0248,
+    "rows_matched_share": 0.027,
+    "matched_share_by_label": {
+      "E": 0.0252,
+      "S": 0.0285,
+      "C": 0.052,
+      "I": 0.0215
+    },
+    "queries": 29844,
+    "queries_by_threshold": {
+      ">=1 product": {
+        "total": 3537,
+        "train": 2243,
+        "val": 234,
+        "test": 1060
+      },
+      ">=50% products": {
+        "total": 636,
+        "train": 377,
+        "val": 38,
+        "test": 221
+      },
+      ">=50% of E products": {
+        "total": 856,
+        "train": 523,
+        "val": 54,
+        "test": 279
+      },
+      "all products": {
+        "total": 0,
+        "train": 0,
+        "val": 0,
+        "test": 0
+      }
+    }
+  },
+  "keyword_check": {
+    "keywords": "\\b(?:laptop|headphones?|earbuds|monitor|hdmi|keyboard|router|ssd|usb|webcam|camera|speaker|tv)\\b",
+    "queries": 756,
+    "matched_share_by_label": {
+      "E": 0.2971,
+      "S": 0.3021,
+      "C": 0.2912,
+      "I": 0.22
+    }
+  },
+  "electronics_subset": {
+    "definition": ">=50% of E products",
+    "queries": 856,
+    "rows": 14268,
+    "label_dist": {
+      "all_small_us": {
+        "E": 0.4349,
+        "S": 0.3512,
+        "C": 0.0452,
+        "I": 0.1687
+      },
+      "electronics": {
+        "E": 0.3668,
+        "S": 0.4264,
+        "C": 0.0853,
+        "I": 0.1215
+      }
+    },
+    "queries_with_C": {
+      "all_small_us": 0.2581,
+      "electronics": 0.3855
+    },
+    "candidates_per_query_median": {
+      "all_small_us": 16.0,
+      "electronics": 16.0
+    },
+    "query_words_median": {
+      "all_small_us": 4.0,
+      "electronics": 4.0
+    },
+    "source_dist": {
+      "all_small_us": {
+        "other": 0.8078,
+        "parse_pattern": 0.0857,
+        "negations": 0.0777,
+        "behavioral": 0.0255,
+        "nlqec": 0.0033
+      },
+      "electronics": {
+        "other": 0.854,
+        "negations": 0.0713,
+        "parse_pattern": 0.0444,
+        "nlqec": 0.0245,
+        "behavioral": 0.0058
+      }
+    },
+    "matched_products": 6008,
+    "price": {
+      "available_share": 0.5659,
+      "count": 3400.0,
+      "mean": 220.08,
+      "std": 634.81,
+      "min": 3.08,
+      "25%": 19.77,
+      "50%": 60.94,
+      "75%": 199.95,
+      "95%": 901.18,
+      "max": 23390.12
+    },
+    "average_rating": {
+      "count": 6008.0,
+      "mean": 4.26,
+      "std": 0.41,
+      "min": 1.0,
+      "25%": 4.1,
+      "50%": 4.3,
+      "75%": 4.5,
+      "max": 5.0
+    },
+    "rating_number_median": 328.0,
+    "top_main_category": {
+      "All Electronics": 3583,
+      "Computers": 2821,
+      "Camera & Photo": 1797,
+      "Cell Phones & Accessories": 1159,
+      "Home Audio & Theater": 553,
+      "Industrial & Scientific": 278,
+      "Amazon Devices": 177,
+      "Car Electronics": 159,
+      "Automotive": 147,
+      "Office Products": 137,
+      "Apple Products": 136,
+      "Sports & Outdoors": 134,
+      "Tools & Home Improvement": 133,
+      "Amazon Home": 89,
+      "AMAZON FASHION": 87
+    },
+    "top_category_level2": {
+      "Computers & Accessories": 3939,
+      "Camera & Photo": 2097,
+      "Television & Video": 1041,
+      "Headphones, Earbuds & Accessories": 768,
+      "Car & Vehicle Electronics": 652,
+      "Home Audio": 554,
+      "Portable Audio & Video": 552,
+      "Accessories & Supplies": 295,
+      "Wearable Technology": 270,
+      "Security & Surveillance": 232,
+      "GPS, Finders & Accessories": 176,
+      "Power Accessories": 134,
+      "Video Projectors": 114,
+      "samsung_tradein": 87,
+      "Electronics Warranties": 44,
+      "Household Batteries, Chargers & Accessories": 22,
+      "eBook Readers & Accessories": 16,
+      "Vehicle Electronics Accessories": 11,
+      "PC Gaming": 9,
+      "Amazon Device Accessories": 6
+    }
+  }
+}

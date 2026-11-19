@@ -1,0 +1,239 @@
+{
+  "overview": {
+    "rows": 2621288,
+    "queries": 130652,
+    "products": 1814883,
+    "small_version": {
+      "es": {
+        "test": {
+          "rows": 65883,
+          "queries": 2417,
+          "label_dist": {
+            "E": 0.4109,
+            "S": 0.3409,
+            "C": 0.0744,
+            "I": 0.1738
+          }
+        },
+        "train": {
+          "rows": 152891,
+          "queries": 5632,
+          "label_dist": {
+            "E": 0.4129,
+            "S": 0.3323,
+            "C": 0.0817,
+            "I": 0.1731
+          }
+        }
+      },
+      "jp": {
+        "test": {
+          "rows": 88789,
+          "queries": 3123,
+          "label_dist": {
+            "E": 0.4685,
+            "S": 0.3329,
+            "C": 0.0454,
+            "I": 0.1532
+          }
+        },
+        "train": {
+          "rows": 209094,
+          "queries": 7284,
+          "label_dist": {
+            "E": 0.4599,
+            "S": 0.3324,
+            "C": 0.0429,
+            "I": 0.1648
+          }
+        }
+      },
+      "us": {
+        "test": {
+          "rows": 181701,
+          "queries": 8956,
+          "label_dist": {
+            "E": 0.4387,
+            "S": 0.3498,
+            "C": 0.0446,
+            "I": 0.1669
+          }
+        },
+        "train": {
+          "rows": 419653,
+          "queries": 20888,
+          "label_dist": {
+            "E": 0.4333,
+            "S": 0.3518,
+            "C": 0.0455,
+            "I": 0.1695
+          }
+        }
+      }
+    },
+    "large_version": {
+      "es": {
+        "test": {
+          "rows": 93347,
+          "queries": 3844,
+          "label_dist": {
+            "E": 0.5319,
+            "S": 0.273,
+            "C": 0.0586,
+            "I": 0.1364
+          }
+        },
+        "train": {
+          "rows": 263063,
+          "queries": 11336,
+          "label_dist": {
+            "E": 0.5794,
+            "S": 0.2417,
+            "C": 0.0571,
+            "I": 0.1218
+          }
+        }
+      },
+      "jp": {
+        "test": {
+          "rows": 118907,
+          "queries": 4667,
+          "label_dist": {
+            "E": 0.5581,
+            "S": 0.276,
+            "C": 0.0375,
+            "I": 0.1284
+          }
+        },
+        "train": {
+          "rows": 327146,
+          "queries": 13460,
+          "label_dist": {
+            "E": 0.5874,
+            "S": 0.2541,
+            "C": 0.0325,
+            "I": 0.126
+          }
+        }
+      },
+      "us": {
+        "test": {
+          "rows": 425762,
+          "queries": 22458,
+          "label_dist": {
+            "E": 0.6514,
+            "S": 0.2233,
+            "C": 0.0257,
+            "I": 0.0997
+          }
+        },
+        "train": {
+          "rows": 1393063,
+          "queries": 74888,
+          "label_dist": {
+            "E": 0.6965,
+            "S": 0.1969,
+            "C": 0.0209,
+            "I": 0.0858
+          }
+        }
+      }
+    }
+  },
+  "per_query_small": {
+    "es": {
+      "queries": 8049,
+      "candidates_per_query": {
+        "count": 8049.0,
+        "mean": 27.18,
+        "std": 11.63,
+        "min": 8.0,
+        "25%": 16.0,
+        "50%": 22.0,
+        "75%": 40.0,
+        "95%": 40.0,
+        "max": 77.0
+      },
+      "query_words": {
+        "count": 8049.0,
+        "mean": 3.46,
+        "std": 1.41,
+        "min": 1.0,
+        "25%": 3.0,
+        "50%": 3.0,
+        "75%": 4.0,
+        "95%": 6.0,
+        "max": 12.0
+      },
+      "share_queries_with_E": 1.0,
+      "share_queries_without_E": 0.0,
+      "share_queries_all_E": 0.0,
+      "share_queries_with_C": 0.444
+    },
+    "jp": {
+      "queries": 10407,
+      "candidates_per_query": {
+        "count": 10407.0,
+        "mean": 28.62,
+        "std": 12.49,
+        "min": 8.0,
+        "25%": 16.0,
+        "50%": 33.0,
+        "75%": 40.0,
+        "95%": 45.0,
+        "max": 96.0
+      },
+      "query_words": {
+        "count": 10407.0,
+        "mean": 1.83,
+        "std": 1.02,
+        "min": 1.0,
+        "25%": 1.0,
+        "50%": 2.0,
+        "75%": 2.0,
+        "95%": 3.0,
+        "max": 13.0
+      },
+      "share_queries_with_E": 1.0,
+      "share_queries_without_E": 0.0,
+      "share_queries_all_E": 0.0,
+      "share_queries_with_C": 0.344
+    },
+    "us": {
+      "queries": 29844,
+      "candidates_per_query": {
+        "count": 29844.0,
+        "mean": 20.15,
+        "std": 9.48,
+        "min": 8.0,
+        "25%": 16.0,
+        "50%": 16.0,
+        "75%": 16.0,
+        "95%": 40.0,
+        "max": 188.0
+      },
+      "query_words": {
+        "count": 29844.0,
+        "mean": 3.89,
+        "std": 1.83,
+        "min": 1.0,
+        "25%": 3.0,
+        "50%": 4.0,
+        "75%": 5.0,
+        "95%": 7.0,
+        "max": 29.0
+      },
+      "share_queries_with_E": 1.0,
+      "share_queries_without_E": 0.0,
+      "share_queries_all_E": 0.0,
+      "share_queries_with_C": 0.2581
+    }
+  },
+  "overlap_small_us": {
+    "query_id_overlap_train_test": 0,
+    "query_text_overlap_train_test": 0,
+    "test_products_seen_in_train": 0.2108,
+    "products_in_multiple_queries": 0.1377
+  },
+  "n_products_small_us": 482105
+}

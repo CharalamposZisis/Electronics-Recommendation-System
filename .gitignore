@@ -222,3 +222,7 @@ data/amazon_reviews/electronics_reviews.csv
 
 # Processed data (παράγεται από src/data.py)
 data/processed/
+
+# Amazon Reviews 2023 (παράγεται από src/meta.py)
+data/amazon_reviews/*.parquet
+data/amazon_reviews/*.parquet.tmp
