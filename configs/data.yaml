@@ -15,8 +15,10 @@ split:
 
 output_dir: data/processed/esci_small_us
 
-# Amazon Reviews 2023 (McAuley Lab) — metadata Electronics για το φίλτρο electronics.
+# Amazon Reviews 2023 (McAuley Lab) — metadata ανά κατηγορία, για υποσύνολα του ESCI ανά κατηγορία.
+# Κάθε κατηγορία κατεβαίνει στο <out_dir>/meta_<Category>_slim.parquet (src/meta.py).
 amazon_meta:
-  url: https://mcauleylab.ucsd.edu/public_datasets/data/amazon_2023/raw/meta_categories/meta_Electronics.jsonl.gz
-  out_file: data/amazon_reviews/meta_Electronics_slim.parquet
+  base_url: https://mcauleylab.ucsd.edu/public_datasets/data/amazon_2023/raw/meta_categories/
+  categories: [Electronics]   # ονόματα όπως στο Amazon 2023, π.χ. Cell_Phones_and_Accessories
+  out_dir: data/amazon_reviews
   columns: [parent_asin, title, main_category, categories, store, price, average_rating, rating_number]

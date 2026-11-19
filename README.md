@@ -1,5 +1,9 @@
-# Electronics-Recommendation-System
-Research project comparing fine-tuned LLMs and Retrieval-Augmented Generation for intelligent electronics product search, ranking, and recommendations based on Amazon Dataset.
+# Product-Search-Recommendation-System
+Research project comparing fine-tuned LLMs and Retrieval-Augmented Generation for intelligent product search, ranking, and recommendations based on Amazon datasets.
+
+Τα μοντέλα εκπαιδεύονται και αξιολογούνται σε **όλες** τις κατηγορίες προϊόντων του ESCI.
+Επιπλέον, συγκεκριμένες κατηγορίες (αρχικά **Electronics**) μελετώνται ως case studies,
+με ξεχωριστή αξιολόγηση στο αντίστοιχο υποσύνολο.
 
 ## Setup
 
@@ -27,13 +31,13 @@ pip install -r requirements.txt
   Δεν περιέχει κατηγορία ούτε τιμή προϊόντος.
 
 ### 2. Amazon Reviews 2023 — McAuley Lab (UCSD)
-- **Τι είναι:** reviews και metadata προϊόντων Amazon ανά κατηγορία (εδώ: **Electronics**).
+- **Τι είναι:** reviews και metadata προϊόντων Amazon, χωρισμένα σε 33 κατηγορίες.
   Τα metadata έχουν, μεταξύ άλλων, κατηγορίες, τιμή, store, βαθμολογίες.
 - **Πηγή:** https://amazon-reviews-2023.github.io
-  (αρχείο: `raw/meta_categories/meta_Electronics.jsonl.gz`, ~1.3GB συμπιεσμένο)
+  (αρχεία: `raw/meta_categories/meta_<Category>.jsonl.gz`· έχει κατέβει το `Electronics`, ~1.3GB συμπιεσμένο)
 - **Αναφορά:** Hou et al., *Bridging Language and Items for Retrieval and Recommendation*, 2024, arXiv:2403.03952
-- **Χρήση στην εργασία:** (α) φίλτρο electronics στο ESCI, με join `product_id` (ESCI) ↔ `parent_asin`
-  (Amazon 2023)· (β) αργότερα, reviews ως evidence για το RAG.
+- **Χρήση στην εργασία:** (α) υποσύνολα του ESCI ανά κατηγορία (case studies), με join
+  `product_id` (ESCI) ↔ `parent_asin` (Amazon 2023)· (β) αργότερα, reviews ως evidence για το RAG.
 
 ## Δεδομένα (ESCI)
 
@@ -49,14 +53,16 @@ pip install -r requirements.txt
    ```
    Έξοδος: `data/processed/esci_small_us/{train,val,test}.parquet` και `split_info.json` (μεγέθη και κατανομή ετικετών).
 
-## Δεδομένα (Amazon Reviews 2023 — metadata Electronics)
+## Δεδομένα (Amazon Reviews 2023 — metadata ανά κατηγορία)
 
 Streaming λήψη (το .jsonl.gz δεν γράφεται στον δίσκο) και αποθήκευση μόνο των στηλών
-`parent_asin, title, main_category, categories, store, price, average_rating, rating_number`:
+`parent_asin, title, main_category, categories, store, price, average_rating, rating_number`.
+Οι κατηγορίες ορίζονται στο `configs/data.yaml` (`amazon_meta.categories`):
 ```bash
-python -m src.meta --config configs/data.yaml
+python -m src.meta --config configs/data.yaml               # όλες του config (τώρα: Electronics)
+python -m src.meta --category Cell_Phones_and_Accessories   # ή μία συγκεκριμένη
 ```
-Έξοδος: `data/amazon_reviews/meta_Electronics_slim.parquet`.
+Έξοδος: `data/amazon_reviews/meta_<Category>_slim.parquet`.
 
 ## EDA
 
@@ -71,23 +77,24 @@ python -m src.eda --config configs/data.yaml
 Η ίδια ανάλυση με επεξηγήσεις, παράδειγμα query και γραφήματα inline:
 `notebooks/01_eda_esci_full.ipynb` (καλεί τις συναρτήσεις του `src/eda.py`).
 
-### Electronics υποσύνολο
+### Υποσύνολα ανά κατηγορία (case studies)
 
-Join ESCI `product_id` ↔ `meta_Electronics` `parent_asin`, coverage, sanity check
-και EDA στα electronics queries (απαιτεί `src.data` και `src.meta`):
+Join ESCI `product_id` ↔ `meta_<Category>` `parent_asin`, coverage, sanity check
+και EDA στα queries της κατηγορίας (απαιτεί `src.data` και `src.meta` για την κατηγορία):
 ```bash
-python -m src.electronics --config configs/data.yaml
+python -m src.category_subset --category Electronics
 ```
-Έξοδος στο `results/eda/electronics/`· notebook: `notebooks/02_eda_electronics.ipynb`.
+Έξοδος στο `results/eda/categories/<category>/`· notebook: `notebooks/02_eda_category_subset.ipynb`
+(η κατηγορία ορίζεται στη μεταβλητή `CATEGORY` στην αρχή).
 
-> **Περιορισμός:** το join μέσω ASIN βρίσκει μόνο ~2.5% των ESCI products και, σε
+> **Περιορισμός (Electronics):** το join μέσω ASIN βρίσκει μόνο ~2.5% των ESCI products και, σε
 > προφανώς-electronics queries, μόνο ~30% των E products. Το υποσύνολο (856 queries με
 > ορισμό «≥50% των E products στο meta») είναι προκαταρκτικό.
 
 ## Δομή
 
 ```
-src/        κώδικας (data.py, eda.py, meta.py, electronics.py)
+src/        κώδικας (data.py, eda.py, meta.py, category_subset.py)
 configs/    ένα yaml ανά πείραμα
 notebooks/  EDA και παρουσίαση αποτελεσμάτων
 results/    metrics και γραφήματα
