@@ -91,10 +91,35 @@ python -m src.category_subset --category Electronics
 > προφανώς-electronics queries, μόνο ~30% των E products. Το υποσύνολο (856 queries με
 > ορισμό «≥50% των E products στο meta») είναι προκαταρκτικό.
 
+## Αξιολόγηση (κοινή για όλα τα μοντέλα)
+
+Κάθε μοντέλο γράφει ένα αρχείο predictions με στήλες `query_id, product_id, score`
+(και προαιρετικά `pred_label` ∈ {E,S,C,I}). Οι μετρικές υπολογίζονται **μόνο** από το `src/evaluate.py`:
+```bash
+python -m src.evaluate --predictions results/<exp>/predictions_test.parquet --split test
+```
+- **nDCG@k**: graded gains E=1, S=0.1, C=0.01, I=0 (όπως στο paper του ESCI). Τα queries με μόνο I εξαιρούνται.
+- **MRR, Recall@k**: σχετικό = E.
+- **Accuracy, macro-F1, F1 ανά κλάση, confusion matrix**: όταν υπάρχει `pred_label`.
+- Οι ισοβαθμίες στο score σπάνε τυχαία με seed. Υπάρχει και ανάλυση ανά πηγή query (`ranking_by_source`).
+
+## Baselines (re-ranking των υποψηφίων κάθε query)
+
+BM25 (k1=1.2, b=0.75), TF-IDF (cosine) και random, είτε μόνο με τον τίτλο (`*_title`) είτε με
+τίτλο+brand+color+bullets+description (`*_text`). Το IDF υπολογίζεται σε όλο τον κατάλογο small-us, χωρίς ετικέτες.
+```bash
+for c in random bm25_title bm25_text tfidf_title tfidf_text; do
+  python -m src.baselines --config configs/$c.yaml
+done
+python -m src.report --split test     # → results/summary_test.csv
+```
+Έξοδος ανά πείραμα: `results/<exp>/metrics_{val,test}.json`, `config.yaml` και τα predictions
+(τα predictions δεν μπαίνουν στο git). Τα `*_text` θέλουν ~7GB RAM.
+
 ## Δομή
 
 ```
-src/        κώδικας (data.py, eda.py, meta.py, category_subset.py)
+src/        κώδικας (data.py, eda.py, meta.py, category_subset.py, evaluate.py, baselines.py, report.py)
 configs/    ένα yaml ανά πείραμα
 notebooks/  EDA και παρουσίαση αποτελεσμάτων
 results/    metrics και γραφήματα

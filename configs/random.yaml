@@ -1,0 +1,6 @@
+# Baseline re-ranking των υποψηφίων κάθε query (src/baselines.py).
+name: random
+method: random
+data_dir: data/processed/esci_small_us
+eval_splits: [val, test]
+seed: 42

@@ -1,0 +1,7 @@
+# Baseline re-ranking των υποψηφίων κάθε query (src/baselines.py).
+name: tfidf_text
+method: tfidf
+data_dir: data/processed/esci_small_us
+eval_splits: [val, test]
+seed: 42
+fields: [product_title, product_brand, product_color, product_bullet_point, product_description]

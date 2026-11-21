@@ -226,3 +226,6 @@ data/processed/
 # Amazon Reviews 2023 (παράγεται από src/meta.py)
 data/amazon_reviews/*.parquet
 data/amazon_reviews/*.parquet.tmp
+
+# Predictions (αναπαράγονται από src/baselines.py κ.λπ.· τα metrics μπαίνουν στο git)
+results/**/predictions_*.parquet

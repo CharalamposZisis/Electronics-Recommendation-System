@@ -1,0 +1,12 @@
+name: bm25_title
+method: bm25
+data_dir: data/processed/esci_small_us
+eval_splits:
+- val
+- test
+seed: 42
+fields:
+- product_title
+bm25:
+  k1: 1.2
+  b: 0.75
