@@ -1,0 +1,118 @@
+{
+  "experiment": "majority",
+  "majority_label": "E",
+  "n_rows": 181701,
+  "n_queries": 8956,
+  "ranking": {
+    "ndcg@1": 0.4729,
+    "recall@1": 0.0577,
+    "ndcg@5": 0.5046,
+    "recall@5": 0.2863,
+    "ndcg@10": 0.5792,
+    "recall@10": 0.5638,
+    "mrr": 0.6155,
+    "n_queries_ndcg": 8956,
+    "n_queries_with_E": 8955
+  },
+  "ranking_by_source": {
+    "behavioral": {
+      "ndcg@1": 0.4818,
+      "recall@1": 0.0345,
+      "ndcg@5": 0.4921,
+      "recall@5": 0.1631,
+      "ndcg@10": 0.5221,
+      "recall@10": 0.3333,
+      "mrr": 0.6303,
+      "n_queries_ndcg": 223,
+      "n_queries_with_E": 223
+    },
+    "negations": {
+      "ndcg@1": 0.3812,
+      "recall@1": 0.0369,
+      "ndcg@5": 0.4166,
+      "recall@5": 0.1987,
+      "ndcg@10": 0.4644,
+      "recall@10": 0.391,
+      "mrr": 0.5535,
+      "n_queries_ndcg": 689,
+      "n_queries_with_E": 689
+    },
+    "nlqec": {
+      "ndcg@1": 0.19,
+      "recall@1": 0.0289,
+      "ndcg@5": 0.3161,
+      "recall@5": 0.2794,
+      "ndcg@10": 0.3832,
+      "recall@10": 0.4662,
+      "mrr": 0.3852,
+      "n_queries_ndcg": 30,
+      "n_queries_with_E": 30
+    },
+    "other": {
+      "ndcg@1": 0.4812,
+      "recall@1": 0.0636,
+      "ndcg@5": 0.5154,
+      "recall@5": 0.3123,
+      "ndcg@10": 0.5991,
+      "recall@10": 0.6139,
+      "mrr": 0.6202,
+      "n_queries_ndcg": 7233,
+      "n_queries_with_E": 7232
+    },
+    "parse_pattern": {
+      "ndcg@1": 0.4851,
+      "recall@1": 0.0291,
+      "ndcg@5": 0.4935,
+      "recall@5": 0.1583,
+      "ndcg@10": 0.5202,
+      "recall@10": 0.3218,
+      "mrr": 0.6317,
+      "n_queries_ndcg": 781,
+      "n_queries_with_E": 781
+    }
+  },
+  "classification": {
+    "accuracy": 0.4387,
+    "macro_f1": 0.1525,
+    "f1_per_class": {
+      "E": 0.6098,
+      "S": 0.0,
+      "C": 0.0,
+      "I": 0.0
+    },
+    "confusion_matrix": {
+      "labels": [
+        "E",
+        "S",
+        "C",
+        "I"
+      ],
+      "matrix": [
+        [
+          79708,
+          0,
+          0,
+          0
+        ],
+        [
+          63563,
+          0,
+          0,
+          0
+        ],
+        [
+          8099,
+          0,
+          0,
+          0
+        ],
+        [
+          30331,
+          0,
+          0,
+          0
+        ]
+      ]
+    }
+  }
+}

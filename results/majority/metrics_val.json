@@ -1,0 +1,118 @@
+{
+  "experiment": "majority",
+  "majority_label": "E",
+  "n_rows": 41934,
+  "n_queries": 2089,
+  "ranking": {
+    "ndcg@1": 0.4807,
+    "recall@1": 0.0631,
+    "ndcg@5": 0.5039,
+    "recall@5": 0.2884,
+    "ndcg@10": 0.5784,
+    "recall@10": 0.5647,
+    "mrr": 0.6195,
+    "n_queries_ndcg": 2089,
+    "n_queries_with_E": 2089
+  },
+  "ranking_by_source": {
+    "behavioral": {
+      "ndcg@1": 0.3852,
+      "recall@1": 0.0267,
+      "ndcg@5": 0.4398,
+      "recall@5": 0.1745,
+      "ndcg@10": 0.5047,
+      "recall@10": 0.3897,
+      "mrr": 0.5669,
+      "n_queries_ndcg": 46,
+      "n_queries_with_E": 46
+    },
+    "negations": {
+      "ndcg@1": 0.3966,
+      "recall@1": 0.0448,
+      "ndcg@5": 0.4415,
+      "recall@5": 0.2324,
+      "ndcg@10": 0.4889,
+      "recall@10": 0.4242,
+      "mrr": 0.575,
+      "n_queries_ndcg": 166,
+      "n_queries_with_E": 166
+    },
+    "nlqec": {
+      "ndcg@1": 0.2567,
+      "recall@1": 0.0509,
+      "ndcg@5": 0.2439,
+      "recall@5": 0.1769,
+      "ndcg@10": 0.2986,
+      "recall@10": 0.3306,
+      "mrr": 0.3608,
+      "n_queries_ndcg": 9,
+      "n_queries_with_E": 9
+    },
+    "other": {
+      "ndcg@1": 0.4902,
+      "recall@1": 0.069,
+      "ndcg@5": 0.5143,
+      "recall@5": 0.31,
+      "ndcg@10": 0.5969,
+      "recall@10": 0.6092,
+      "mrr": 0.6257,
+      "n_queries_ndcg": 1703,
+      "n_queries_with_E": 1703
+    },
+    "parse_pattern": {
+      "ndcg@1": 0.5055,
+      "recall@1": 0.0313,
+      "ndcg@5": 0.4922,
+      "recall@5": 0.1598,
+      "ndcg@10": 0.5127,
+      "recall@10": 0.3086,
+      "mrr": 0.6293,
+      "n_queries_ndcg": 165,
+      "n_queries_with_E": 165
+    }
+  },
+  "classification": {
+    "accuracy": 0.4312,
+    "macro_f1": 0.1506,
+    "f1_per_class": {
+      "E": 0.6025,
+      "S": 0.0,
+      "C": 0.0,
+      "I": 0.0
+    },
+    "confusion_matrix": {
+      "labels": [
+        "E",
+        "S",
+        "C",
+        "I"
+      ],
+      "matrix": [
+        [
+          18081,
+          0,
+          0,
+          0
+        ],
+        [
+          14754,
+          0,
+          0,
+          0
+        ],
+        [
+          1867,
+          0,
+          0,
+          0
+        ],
+        [
+          7232,
+          0,
+          0,
+          0
+        ]
+      ]
+    }
+  }
+}

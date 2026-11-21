@@ -1,0 +1,19 @@
+name: logreg_lexical_balanced
+method: logreg
+data_dir: data/processed/esci_small_us
+eval_splits:
+- val
+- test
+seed: 42
+features:
+  min_df: 2
+  bm25:
+    k1: 1.2
+    b: 0.75
+model:
+  C_grid:
+  - 0.3
+  - 1.0
+  - 3.0
+  max_iter: 1000
+  class_weight: balanced

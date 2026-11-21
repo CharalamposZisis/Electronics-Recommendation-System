@@ -113,13 +113,25 @@ for c in random bm25_title bm25_text tfidf_title tfidf_text; do
 done
 python -m src.report --split test     # → results/summary_test.csv
 ```
+Baselines ταξινόμησης E/S/C/I (`src/classifiers.py`):
+- `majority`: πάντα η πιο συχνή κλάση του train (E).
+- `logreg_lexical` / `logreg_lexical_balanced`: Logistic Regression σε TF-IDF του query, του τίτλου και των
+  κοινών τους όρων, μαζί με BM25, overlap και μήκη, χωρίς ή με `class_weight=balanced`. Vectorizer και scaler
+  γίνονται fit μόνο στο train και το C επιλέγεται με macro-F1 στο val. Το ranking score είναι
+  P(E) + 0.1·P(S) + 0.01·P(C).
+```bash
+for c in majority logreg_lexical logreg_lexical_balanced; do
+  python -m src.classifiers --config configs/$c.yaml
+done
+```
+
 Έξοδος ανά πείραμα: `results/<exp>/metrics_{val,test}.json`, `config.yaml` και τα predictions
 (τα predictions δεν μπαίνουν στο git). Τα `*_text` θέλουν ~7GB RAM.
 
 ## Δομή
 
 ```
-src/        κώδικας (data.py, eda.py, meta.py, category_subset.py, evaluate.py, baselines.py, report.py)
+src/        κώδικας (data.py, eda.py, meta.py, category_subset.py, evaluate.py, baselines.py, classifiers.py, report.py)
 configs/    ένα yaml ανά πείραμα
 notebooks/  EDA και παρουσίαση αποτελεσμάτων
 results/    metrics και γραφήματα

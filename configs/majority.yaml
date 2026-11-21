@@ -1,0 +1,6 @@
+# Baseline ταξινόμησης: πάντα η πιο συχνή κλάση του train (src/classifiers.py).
+name: majority
+method: majority
+data_dir: data/processed/esci_small_us
+eval_splits: [val, test]
+seed: 42
